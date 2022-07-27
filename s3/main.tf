@@ -3,14 +3,14 @@ locals {
   attach_policy = var.attach_elb_log_delivery_policy || var.attach_lb_log_delivery_policy || var.attach_deny_insecure_transport_policy || var.attach_policy
 }
 
-  /*
+  
 module "label" {
-  # source  = "git@github.com:HBOCodeLabs/cloudops-terraform-aws-modules//null-label?ref=master"
+  source  = "git@github.com:karthickkumars/terraform-aws-modules//null-label?ref=master"
   #version = "0.25.0"
 
   context = module.this.context
 }
-  */
+  
 
 resource "aws_s3_bucket" "this" {
   count = var.enable ? 1 : 0
